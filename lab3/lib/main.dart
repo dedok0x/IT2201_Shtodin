@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 9;
+  int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -39,6 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void _decrementCounter() {
     setState(() {
       _counter--;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
     });
   }
 
@@ -79,9 +85,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Сбросить',
-              style: TextStyle(fontSize: 16),
+            TextButton(
+              onPressed: _resetCounter,
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.grey, padding: EdgeInsets.zero, // Убираем отступы
+                minimumSize: Size.zero,   // Убираем минимальный размер
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap, // Цвет текста
+              ),
+              child: const Text(
+                'Сбросить',
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ],
         ),
