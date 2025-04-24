@@ -9,6 +9,7 @@ class AreaCalculator extends StatefulWidget {
 
 class _AreaCalculatorState extends State<AreaCalculator> {
   final _formKey = GlobalKey<FormState>();
+  String _selectedUnit = 'мм';
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,23 @@ class _AreaCalculatorState extends State<AreaCalculator> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            DropdownButton<String>(
+              value: _selectedUnit,
+              items: <String>['мм', 'см', 'м']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  _selectedUnit = newValue!;
+                });
+              },
+            ),
+            const SizedBox(height: 10.0),
+
             Row(
               children: [
                 Expanded(
