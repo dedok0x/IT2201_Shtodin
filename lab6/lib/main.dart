@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AreaCalculator extends StatefulWidget {
-  const AreaCalculator({Key? key}) : super(key: key);
+  const AreaCalculator({super.key});
 
   @override
   State<StatefulWidget> createState() => _AreaCalculatorState();
@@ -13,13 +13,6 @@ class _AreaCalculatorState extends State<AreaCalculator> {
   final TextEditingController _widthController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   String _result = '';
-
-  @override
-  void dispose() {
-    _widthController.dispose();
-    _heightController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +57,9 @@ class _AreaCalculatorState extends State<AreaCalculator> {
                             if (double.tryParse(value) == null) {
                               return 'Введите число';
                             }
+                            if (double.tryParse(value)! < 0){
+                              return 'Ширина не может быть < 0';
+                            }
                             return null;
                           },
                           decoration: const InputDecoration(
@@ -87,6 +83,9 @@ class _AreaCalculatorState extends State<AreaCalculator> {
                           }
                           if (double.tryParse(value) == null) {
                             return 'Введите число';
+                          }
+                          if (double.tryParse(value)! < 0){
+                            return 'Высота не может быть < 0';
                           }
                           return null;
                         },
