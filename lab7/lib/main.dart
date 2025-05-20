@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const FirstScreen(),
       routes: {
+        '/': (context) => const FirstScreen(),
         '/second': (context) => const SecondScreen(),
       },
     );
