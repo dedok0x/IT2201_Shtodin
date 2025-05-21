@@ -1,1 +1,0 @@
- C:\\Users\\Artem\\Desktop\\IT2201_Shtodin\\lab6\\.dart_tool\\flutter_build\\8a75a325f437796c0322e3c664ff095a\\native_assets.json: 
