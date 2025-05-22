@@ -1,4 +1,5 @@
 // cappuccino.dart
+import '../services/async_process.dart';
 import 'icoffee.dart';
 import 'coffee_resources.dart';
 import 'coffee_type.dart';
@@ -21,7 +22,11 @@ class Cappuccino implements ICoffee {
   );
 
   @override
-  Future<void> prepare(Function(String p1) statusCallback) {
-    throw UnimplementedError();
+  Future<void> prepare(Function(String) callback) async {
+    await AsyncProcess.heatWater( callback);
+    await AsyncProcess.brewCoffee( callback);
+    await AsyncProcess.frothMilk( callback);
+    await AsyncProcess.mixIngredients( callback);
+    await AsyncProcess.finishing( callback);
   }
 }

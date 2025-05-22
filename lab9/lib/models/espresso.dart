@@ -22,6 +22,8 @@ class Espresso implements ICoffee {
 
   @override
   Future<void> prepare(Function(String) callback) async {
-    await AsyncProcess.brewCoffee(callback);
+    await AsyncProcess.heatWater( callback);
+    await AsyncProcess.brewCoffee( callback);
+    await AsyncProcess.finishing( callback);
   }
 }
